@@ -1,3 +1,18 @@
+import string
+
+def caesar(shift, inp):
+    letters_lower = string.ascii_lowercase
+    letters_upper = string.ascii_uppercase
+    shifted = []
+    for x in inp:
+        if x.strip() and x in letters_lower:
+            shifted.append(letters_lower[(letters_lower.index(x) + shift) % 26])
+        elif x.strip() and x in letters_upper:
+            shifted.append(letters_upper[(letters_upper.index(x) + shift) % 26])
+        else:
+            shifted.append(x)
+    return ''.join(shifted)
+
 def fancyConcat(string='',length=None,word=False,elip=False):
   length = length or len(string)
   if elip:
